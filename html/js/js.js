@@ -17,4 +17,4 @@ const getPdf = async function(){
     console.log(resp)
 }
 
-enviar.click(await getPdf())
+enviar.click((await getPdf()))
