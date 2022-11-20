@@ -25,7 +25,7 @@ const createPdf = async function(nombre){
     const nombreTxt = "nombre : " + nombre
     doc.text(10,10,nombreTxt);
     console.log(doc)
-    return doc
+    return Buffer.from(doc)
 }
 
 //pdf
