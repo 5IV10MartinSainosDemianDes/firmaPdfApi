@@ -31,13 +31,13 @@ const createPdf = async function(nombre){
 //pdf
 app.get("/pdf", async (req, res, next) => {
     let resp = ""
-    if(req.query.name!=undefined){
-        resp = createPdf(req.query.name)
+    if(req.query.nombre!=undefined){
+        resp = createPdf(req.query.nombre)
         res.sendFile(resp)
     }else{
         resp = {
             data : "error",
-            msg : "pls name"
+            msg : "pls nombre"
         }
         res.json(resp)
     }
