@@ -2,7 +2,7 @@ const nombre = $("#nombre")
 const mensaje = $("#mensaje")
 const enviar = $("#enviar")
 
-enviar.addEventListener("click", async function(){
+const getPdf = async function(){
     const nombreTxt = nombre.value
     const mensajeTxt = mensaje.value
 
@@ -15,4 +15,6 @@ enviar.addEventListener("click", async function(){
         .then(function(json) {return json})
     console.log("response")
     console.log(resp)
-})
+}
+
+enviar.click(await getPdf())
