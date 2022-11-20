@@ -10,7 +10,7 @@ const getPdf = async function(){
     let url = "https://demma-firmar-pdfs.cyclic.app/pdf"
     url += "/?nombre=" + encodeURI(nombreTxt)
     url += "&?mensaje=" + encodeURI(mensajeTxt)
-    const resp = fetch(url, {method : 'GET',  redirect: "error" })
+    const resp = fetch(url, {method : 'GET'})
     .then(function(response) {
         return response.json(); })
         .then(function(json) {return json})
