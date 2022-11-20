@@ -48,7 +48,7 @@ app.get("/pdf", async (req, res, next) => {
 
 //test
 app.get("/", async (req, res, next) => {
-    res.sendFile("./html/index.html")
+    res.sendFile("html/index.html")
 });
     
   //run this sheet
