@@ -1,5 +1,3 @@
-const $ = require("jquery")
-
 const nombre = $("#nombre")
 const mensaje = $("#mensaje")
 const enviar = $("#enviar")
