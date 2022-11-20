@@ -24,7 +24,6 @@ const createPdf = async function(nombre){
     let doc = new jsPDF();
     const nombreTxt = "nombre : " + nombre
     doc.text(10,10,nombreTxt);
-    doc.save("urPdf.pdf")
     return doc
 }
 
