@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+import fetch from '../../node_modules/node-fetch/src/index.js';
 
 const nombre = $("#nombre")
 const mensaje = $("#mensaje")
