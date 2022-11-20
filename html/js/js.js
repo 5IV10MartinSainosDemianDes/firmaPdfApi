@@ -2,7 +2,7 @@ const nombre = document.getElementById("nombre")
 const mensaje = document.getElementById("mensaje")
 const enviar = document.getElementById("enviar")
 
-enviar.onclick = function(){
+enviar.onClick = function(){
     const nombreTxt = nombre.value
     const mensajeTxt = mensaje.value
 
