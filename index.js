@@ -47,7 +47,16 @@ app.get("/pdf", async (req, res, next) => {
     }
 });    
 
-//test
+//dens js
+app.get("/js", async (req, res, next) => {
+    res.sendFile(path.resolve("html/js/js.js"))
+});
+//dens css
+app.get("/css", async (req, res, next) => {
+    res.sendFile(path.resolve("html/css/style.css"))
+});
+    
+//send index
 app.get("/", async (req, res, next) => {
     res.sendFile(path.resolve("html/index.html"))
 });
