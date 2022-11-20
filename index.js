@@ -48,7 +48,8 @@ app.get("/pdf", async (req, res, next) => {
 
 //test
 app.get("/", async (req, res, next) => {
-    res.json({msg:"pdfs"});});
+    res.sendFile("./html/index.html")
+});
     
   //run this sheet
   //que se ejecute la cosa esta
