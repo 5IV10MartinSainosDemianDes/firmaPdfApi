@@ -37,7 +37,7 @@
             const mensaje = document.getElementById("mensaje")
             const enviar = document.getElementById("enviar")
             
-            enviar.addEventListener("click", async function(){
+            const getPdf = async function(){
                 const nombreTxt = nombre.value
                 const mensajeTxt = mensaje.value
             
@@ -50,7 +50,9 @@
                    .then(function(json) {return json})
                 console.log("response")
                 console.log(resp)
-        })
+            }
+
+            enviar.addEventListener("click", getPdf)
         </script>  
     </body>
 </html>
