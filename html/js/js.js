@@ -2,7 +2,7 @@ const nombre = document.getElementById("nombre")
 const mensaje = document.getElementById("mensaje")
 const enviar = document.getElementById("enviar")
 
-enviar.onClick = function(){
+enviar.addEventListener("click", function(){
     const nombreTxt = nombre.value
     const mensajeTxt = mensaje.value
 
@@ -15,4 +15,4 @@ enviar.onClick = function(){
        .then(function(json) {return json})
     console.log("response")
     console.log(resp)
-}
+})
