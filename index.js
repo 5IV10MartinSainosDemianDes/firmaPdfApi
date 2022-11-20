@@ -1,5 +1,6 @@
 import express from "express";
 import { jsPDF } from "jspdf";
+import path from "path";
 
 var app = express();
  //get PORT from the server
@@ -48,7 +49,7 @@ app.get("/pdf", async (req, res, next) => {
 
 //test
 app.get("/", async (req, res, next) => {
-    res.sendFile("html/index.html")
+    res.sendFile(path.resolve("html/index.html"))
 });
     
   //run this sheet
