@@ -1,3 +1,5 @@
+const { jsPDF } = require("jspdf");
+
 const nombre = $("#nombre")
 const mensaje = $("#mensaje")
 const enviar = $("#enviar")
