@@ -12,7 +12,9 @@ const getPdf = async function(){
     console.log(url)
     const resp = await $.ajax(url, {method : 'GET'})
     .then(function(response) {
-        return response})
+        return response.json()})
+    console.log("respuesta")
+    console.log(resp)
 }
 
 enviar.click( async function(){
