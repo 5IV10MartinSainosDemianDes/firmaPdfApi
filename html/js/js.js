@@ -14,7 +14,7 @@ const getPdf = async function(){
     console.log("respuesta")
     console.log(resp)
     console.log(resp.data)
-    let doc = new resp.data.constructor();
+    let doc = new resp.data.constructor;
     doc.save("res.pdf")
 }
 
