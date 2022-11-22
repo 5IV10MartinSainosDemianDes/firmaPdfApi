@@ -19,7 +19,7 @@ const getPdf = async function(){
     console.log(url)
     const data = {
         name:nombreTxt,
-        msg:mensaje
+        msg:mensajeTxt
     }
     const resp = await axios.post(url,
         data,
