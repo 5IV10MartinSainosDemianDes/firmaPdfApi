@@ -7,11 +7,11 @@ const createPdf = function(body){
     let nombreTxt = "nombre : " + body.name
     let mensajeTxt = "mensaje : " + body.mensaje
     let tokenTxt = "id : " + body.token
-    doc.text(15, 15, nombreTxt, { maxWidth: 200 });
+    doc.text(15, 15, nombreTxt, { maxWidth: 150 });
     doc.addPage();
-    doc.text(15, 15, mensajeTxt, { maxWidth: 200 });
+    doc.text(15, 15, mensajeTxt, { maxWidth: 150 });
     doc.addPage();
-    doc.text(15, 15, tokenTxt, { maxWidth: 200 });
+    doc.text(15, 15, tokenTxt, { maxWidth: 150 });
     doc.save("req.pdf")
 }
 
