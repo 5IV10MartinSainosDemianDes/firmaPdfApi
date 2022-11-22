@@ -26,7 +26,7 @@ const createPdf = async function(nombre){
     const nombreTxt = "nombre : " + nombre
     doc.text(10,10,nombreTxt);
     console.log(doc)
-    return JSON.parse(doc)
+    return doc
 }
 
 //pdf
@@ -34,16 +34,13 @@ app.get("/pdf", async (req, res, next) => {
     let resp = ""
     if(req.query.nombre!=undefined){
         resp = createPdf(req.query.nombre)
-        res.json({
-            data : resp,
-            msg : "give pdf"
-        })
+        res.send(resp)
     }else{
         resp = {
             data : "error",
             msg : "pls nombre"
         }
-        res.json(createPdf(req.query.nombre))
+        res.json(resp)
     }
 });    
 
