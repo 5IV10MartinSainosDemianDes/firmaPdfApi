@@ -14,7 +14,7 @@ const getPdf = async function(){
     console.log("respuesta")
     console.log(resp)
     console.log(resp.data)
-    const doc = buffer.Buffer.from(resp.data)
+    const doc = resp.data
     doc.save("res.pdf")
 }
 
