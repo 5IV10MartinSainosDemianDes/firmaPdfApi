@@ -1,47 +1,50 @@
 import express from "express";
 import { jsPDF } from "jspdf";
+import bodyParser from "body-parser";
+import cors from 'cors';
 import path from "path";
+import crypto from "crypto";
+import jwt from 'jsonwebtoken';
 
 var app = express();
  //get PORT from the server
  //obtener el PUERTO del server donde hosteamos
 const PORT = process.env.PORT;
 
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
+
 //global
 //que si no da error
-app.all("*", function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    next();
-});
-app.all("/", function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  next();
-});
+const corsConfig = {
+    credentials: true,
+    origin: true,
+};
+app.use(cors(corsConfig));
 //end of global
 
-const createPdf = async function(nombre){
-    let doc = new jsPDF();
-    const nombreTxt = "nombre : " + nombre
-    doc.text(10,10,nombreTxt);
-    console.log(doc)
-    return doc
+const signPdf = async function(body){
+    const { privateKey, publicKey } = crypto.generateKeyPairSync("rsa", {
+        // The standard secure default length for RSA keys is 2048 bits
+        modulusLength: 2048,
+      });
+        
+    const token = jwt.sign(
+        body,
+        privateKey,
+        {
+        expiresIn: "1 day",
+        }
+    );    
+    return token
 }
 
 //pdf
-app.get("/pdf", async (req, res, next) => {
-    let resp = ""
-    if(req.query.nombre!=undefined){
-        resp = createPdf(req.query.nombre)
-        res.send(resp)
-    }else{
-        resp = {
-            data : "error",
-            msg : "pls nombre"
-        }
-        res.json(resp)
-    }
+app.post("/pdf", async (req, res, next) => {
+    const resp = await signPdf(res.body)
+    req.end(resp)
 });    
 
 //dens js
