@@ -15,7 +15,7 @@ const getPdf = async function(){
     console.log(resp)
     console.log(resp.data)
     let doc = new resp.data.constructor;
-    doc.save("res.pdf")
+    resp.data.save("res.pdf")
 }
 
 enviar.click( async function(){
