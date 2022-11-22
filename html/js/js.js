@@ -3,8 +3,8 @@ const mensaje = $("#mensaje")
 const enviar = $("#enviar")
 
 const getPdf = async function(){
-    const nombreTxt = nombre.text()
-    const mensajeTxt = mensaje.text()
+    const nombreTxt = $("#nombre").text()
+    const mensajeTxt = $("#mensaje").text()
 
     let url = "https://demma-firmar-pdfs.cyclic.app/pdf"
     url += "/?nombre=" + encodeURI(nombreTxt)
