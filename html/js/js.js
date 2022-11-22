@@ -10,9 +10,9 @@ const getPdf = async function(){
     url += "/?nombre=" + encodeURI(nombreTxt)
     url += "&?mensaje=" + encodeURI(mensajeTxt)
     console.log(url)
-     //const resp = await $.ajax.(url, {method : 'GET'})
-    //.then(function(response) {
-        //return response})
+    const resp = await $.ajax(url, {method : 'GET'})
+    .then(function(response) {
+        return response})
 }
 
 enviar.click( async function(){
