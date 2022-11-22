@@ -3,7 +3,7 @@ const mensaje = $("#mensaje")
 const enviar = $("#enviar")
 
 const createPdf = function(body){
-    let doc = new jsPDF();
+    let doc = new jspdf.jsPDF();
     let nombreTxt = "nombre : " + body.name
     nombre += "<br> mensaje : " + body.mensaje
     nombre += "<br> id : " + body.token
