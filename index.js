@@ -29,14 +29,14 @@ const signPdf = async function(body){
     console.log("start of body")
     console.log(body)
     console.log("end of body")
-    const { privateKey, publicKey } = crypto.generateKeyPairSync("rsa", {
+    const keys = crypto.generateKeyPairSync("rsa", {
         // The standard secure default length for RSA keys is 2048 bits
         modulusLength: 2048,
       });
         
     const token = jwt.sign(
-        body,
-        privateKey,
+        JSON.parse(body),
+        keys.privateKey,
         {
         expiresIn: "1 day",
         }
