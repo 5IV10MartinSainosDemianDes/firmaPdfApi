@@ -46,8 +46,8 @@ const signPdf = async function(body){
 
 //pdf
 app.post("/pdf", async (req, res, next) => {
-    const resp = await signPdf(res.body)
-    req.end(resp)
+    const resp = await signPdf(req.body)
+    res.end(resp)
 });    
 
 //dens js
