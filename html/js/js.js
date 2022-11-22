@@ -12,8 +12,7 @@ const getPdf = async function(){
     console.log(url)
     const resp = await fetch(url, {method : 'GET'})
     .then(function(response) {
-        return response.json(); })
-        .then(function(json) {return json})
+        return response})
     console.log("response")
     console.log(resp)
 }
