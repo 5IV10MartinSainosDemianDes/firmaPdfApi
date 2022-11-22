@@ -13,8 +13,6 @@ const getPdf = async function(){
     const resp = await fetch(url, {method : 'GET'})
     .then(function(response) {
         return response})
-    console.log("response")
-    console.log(resp)
 }
 
 enviar.click( async function(){
