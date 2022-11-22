@@ -5,8 +5,8 @@ const enviar = $("#enviar")
 const createPdf = function(body){
     let doc = new jspdf.jsPDF();
     let nombreTxt = "nombre : " + body.name
-    nombre += "<br> mensaje : " + body.mensaje
-    nombre += "<br> id : " + body.token
+    nombreTxt += "<br> mensaje : " + body.mensaje
+    nombreTxt += "<br> id : " + body.token
     doc.text(10,10,nombreTxt);
     doc.save("req.pdf")
 }
