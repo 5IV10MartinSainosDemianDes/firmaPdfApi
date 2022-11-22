@@ -33,10 +33,14 @@ const signPdf = async function(body){
         // The standard secure default length for RSA keys is 2048 bits
         modulusLength: 2048,
       });
-        const data = {name:body.name,msg:body.msg}
+    const data = {name:body.name,msg:body.msg}
+    const publicKeyTxt = publicKey.export({
+        type: "pkcs1",
+        format: "pem",
+      });
     const token = jwt.sign(
         data,
-        privateKey,
+        publicKeyTxt,
         {
         expiresIn: "1 day",
         }
