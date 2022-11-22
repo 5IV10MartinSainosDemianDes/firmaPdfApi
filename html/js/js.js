@@ -1,5 +1,3 @@
-import { jsPDF } from "jspdf";
-
 const nombre = $("#nombre")
 const mensaje = $("#mensaje")
 const enviar = $("#enviar")
@@ -16,7 +14,7 @@ const getPdf = async function(){
     console.log("respuesta")
     console.log(resp)
     console.log(resp.data)
-    let doc = new jsPDF();
+    let doc = new jspdf.jsPDF();
     doc = resp.data
     doc.save("res.pdf")
 }
