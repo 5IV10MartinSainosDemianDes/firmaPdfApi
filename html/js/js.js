@@ -13,10 +13,7 @@ const getPdf = async function(){
     const resp = await $.ajax(url, {method : 'GET'})
     console.log("respuesta")
     console.log(resp)
-    console.log(resp.data)
-    resp.data.save("req.pdf")
-    let doc = new buffer.Buffer.from(resp.data)
-    doc.save("req.pdf")
+    resp.save("req.pdf")
 }
 
 enviar.click( async function(){
