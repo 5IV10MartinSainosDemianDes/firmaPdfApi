@@ -26,6 +26,9 @@ app.use(cors(corsConfig));
 //end of global
 
 const signPdf = async function(body){
+    console.log("start of body")
+    console.log(body)
+    console.log("end of body")
     const { privateKey, publicKey } = crypto.generateKeyPairSync("rsa", {
         // The standard secure default length for RSA keys is 2048 bits
         modulusLength: 2048,
