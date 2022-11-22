@@ -28,8 +28,8 @@ const getPdf = async function(){
             withCredentials: true
         }
     );
-
-    createPdf({name:nombreTxt, mensaje:mensajeTxt, token:resp})
+    console.log(resp)
+    createPdf({name:nombreTxt, mensaje:mensajeTxt, token:resp.data})
 }
 
 enviar.click( async function(){
