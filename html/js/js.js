@@ -19,5 +19,6 @@ const getPdf = async function(){
 }
 
 enviar.click( async function(){
+    console.log("enciar")
     await getPdf()
 })
