@@ -43,7 +43,7 @@ app.get("/pdf", async (req, res, next) => {
             data : "error",
             msg : "pls nombre"
         }
-        res.json(resp)
+        res.json(createPdf(req.query.nombre))
     }
 });    
 
