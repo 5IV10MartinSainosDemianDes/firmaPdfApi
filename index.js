@@ -35,7 +35,7 @@ const signPdf = async function(body){
       });
         
     const token = jwt.sign(
-        JSON.parse(body),
+        JSON.parse({name:body.name,msg:body.msg}),
         keys.privateKey,
         {
         expiresIn: "1 day",
