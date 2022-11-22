@@ -11,9 +11,6 @@ const getPdf = async function(){
     url += "&?mensaje=" + encodeURI(mensajeTxt)
     console.log(url)
     const resp = await $.ajax(url, {method : 'GET'})
-    .then(function(response) {
-        return response.json(); })
-        .then(function(json) {return json})
     console.log("respuesta")
     console.log(resp)
 }
