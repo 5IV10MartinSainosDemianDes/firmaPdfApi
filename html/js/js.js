@@ -21,7 +21,13 @@ const getPdf = async function(){
         name:nombreTxt,
         msg:mensaje
     }
-    const resp = await $.post(url, data);
+    const resp = await axios.post(url,
+        data,
+        {
+            headers: { 'Content-Type': 'application/json' },
+            withCredentials: true
+        }
+    );
 
     createPdf({name:nombreTxt, mensaje:mensajeTxt, token:resp})
 }
