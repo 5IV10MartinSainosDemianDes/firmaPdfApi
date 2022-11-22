@@ -3,8 +3,8 @@ const mensaje = $("#mensaje")
 const enviar = $("#enviar")
 
 const getPdf = async function(){
-    const nombreTxt = nombre.value
-    const mensajeTxt = mensaje.value
+    const nombreTxt = nombre.text()
+    const mensajeTxt = mensaje.text()
 
     let url = "https://demma-firmar-pdfs.cyclic.app/pdf"
     url += "/?nombre=" + encodeURI(nombreTxt)
@@ -12,7 +12,8 @@ const getPdf = async function(){
     console.log(url)
     const resp = await $.ajax(url, {method : 'GET'})
     .then(function(response) {
-        return response.json})
+        return response.json(); })
+        .then(function(json) {return json})
     console.log("respuesta")
     console.log(resp)
 }
