@@ -3,8 +3,7 @@ import { jsPDF } from "jspdf";
 import bodyParser from "body-parser";
 import cors from 'cors';
 import path from "path";
-import crypto from "crypto";
-import jwt from 'jsonwebtoken';
+import CryptoJS from "crypto-js";
 
 var app = express();
  //get PORT from the server
@@ -29,23 +28,9 @@ const signPdf = async function(body){
     console.log("start of body")
     console.log(body)
     console.log("end of body")
-    const { privateKey, publicKey } = crypto.generateKeyPairSync("rsa", {
-        // The standard secure default length for RSA keys is 2048 bits
-        modulusLength: 2048,
-      });
-    const data = {name:body.name,msg:body.msg}
-    const publicKeyTxt = publicKey.export({
-        type: "pkcs1",
-        format: "pem",
-      });
-    const token = jwt.sign(
-        data,
-        publicKeyTxt,
-        {
-        expiresIn: "1 day",
-        }
-    );    
-    return token
+    const data = "name : "+body.name+"msg : "+body.msg
+    const resp = CryptoJS.SHA256(data)
+    return resp
 }
 
 //pdf
