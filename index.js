@@ -29,7 +29,8 @@ const signPdf = async function(body){
     console.log(body)
     console.log("end of body")
     const data = "name : "+body.name+"msg : "+body.msg
-    const resp = CryptoJS.SHA256(data).toString("base64")
+    const resp = CryptoJS.SHA256(data)
+    console.log("response",resp)
     return resp
 }
 
